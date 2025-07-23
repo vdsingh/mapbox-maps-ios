@@ -59,7 +59,6 @@ struct SwiftUIRoot: View {
 #endif
                     ExampleLink("Precipitation", note: "Show show and rain", destination: PrecipitationExample())
                     ExampleLink("Custom geometry", note: "Supply custom geometry to the map", destination: CustomGeometrySourceExample())
-                    ExampleLink("Studio style", note: "Test a Mapbox Studio style", destination: StudioStyleExample())
 
                 } header: { Text("Testing Examples") }
             }

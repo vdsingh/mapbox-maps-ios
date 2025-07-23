@@ -84,7 +84,7 @@ public class PointAnnotationManager: AnnotationManager, AnnotationManagerInterna
 
     func addImages(_ images: Set<PointAnnotation.Image>) {
         for image in images {
-            imagesManager.addImage(image.image, id: image.name, sdf: image.sdf, contentInsets: .zero)
+            imagesManager.addImage(image.image, id: image.name, sdf: false, contentInsets: .zero)
         }
     }
 
@@ -519,7 +519,7 @@ public class PointAnnotationManager: AnnotationManager, AnnotationManagerInterna
         set { impl.layerProperties["icon-image-cross-fade-transition"] = newValue?.asDictionary }
     }
 
-    /// Controls the transition progress between the image variants of icon-image. Zero means the first variant is used, one is the second, and in between they are blended together. . Both images should be the same size and have the same type (either raster or vector).
+    /// Controls the transition progress between the image variants of icon-image. Zero means the first variant is used, one is the second, and in between they are blended together.
     /// Default value: 0. Value range: [0, 1]
     public var iconImageCrossFade: Double? {
         get { impl.layerProperties["icon-image-cross-fade"] as? Double }

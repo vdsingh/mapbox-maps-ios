@@ -93,3 +93,7 @@ extension CAAnimation {
         }
     }
 }
+
+extension Log.Category {
+    static let sizeTrackingLayer = Log.Category("SizeTrackingLayer")
+}

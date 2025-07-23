@@ -7,7 +7,7 @@ final class BasicLocationPulsingExample: UIViewController, ExampleProtocol {
     private var cancelables = Set<AnyCancelable>()
 
     private lazy var mapView: MapView = {
-        let view = MapView(frame: view.bounds)
+        let view = MapView(frame: view.bounds, mapInitOptions: .init(styleURI: .streets))
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

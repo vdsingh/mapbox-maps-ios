@@ -59,6 +59,8 @@ final class ViewAnnotationMarkerExample: UIViewController, ExampleProtocol {
             self?.handleMarkerTap(feature) ?? false
         })
 
+        mapView.mapboxMap.styleURI = .streets
+
         view.addSubview(styleChangeButton)
 
         NSLayoutConstraint.activate([
@@ -79,7 +81,7 @@ final class ViewAnnotationMarkerExample: UIViewController, ExampleProtocol {
     }
 
     @objc private func styleChangePressed(sender: UIButton) {
-        mapView.mapboxMap.mapStyle = mapView.mapboxMap.mapStyle == .standard ? .standardSatellite : .standard
+        mapView.mapboxMap.styleURI = mapView.mapboxMap.styleURI == .streets ? .satelliteStreets : .streets
     }
 
     // MARK: - Style management
@@ -91,7 +93,7 @@ final class ViewAnnotationMarkerExample: UIViewController, ExampleProtocol {
         source.data = .featureCollection(FeatureCollection(features: pointList))
         try? mapView.mapboxMap.addSource(source)
 
-        if mapView.mapboxMap.mapStyle == .standardSatellite {
+        if mapView.mapboxMap.styleURI == .satelliteStreets {
             var demSource = RasterDemSource(id: "terrain-source")
             demSource.url = Constants.TERRAIN_URL_TILE_RESOURCE
             try? mapView.mapboxMap.addSource(demSource)

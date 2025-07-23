@@ -6,19 +6,16 @@ final class BasicCameraAnimatorTests: XCTestCase {
 
     var impl: MockBasicCameraAnimator!
     var animator: BasicCameraAnimator!
-    var cancelables = Set<AnyCancelable>()
 
     override func setUp() {
         super.setUp()
         impl = MockBasicCameraAnimator()
         animator = BasicCameraAnimator(impl: impl)
-        cancelables.removeAll()
     }
 
     override func tearDown() {
         animator = nil
         impl = nil
-        cancelables.removeAll()
         super.tearDown()
     }
 
@@ -184,6 +181,7 @@ final class BasicCameraAnimatorTests: XCTestCase {
 
     func testOnStarted() {
         var isStarted = false
+        var cancelables = Set<AnyCancelable>()
         animator.onStarted.observe {
             isStarted = true
         }.store(in: &cancelables)
@@ -194,6 +192,7 @@ final class BasicCameraAnimatorTests: XCTestCase {
 
     func testOnFinished() {
         var isFinished = false
+        var cancelables = Set<AnyCancelable>()
         animator.onFinished.observe {
             isFinished = true
         }.store(in: &cancelables)
@@ -207,6 +206,7 @@ final class BasicCameraAnimatorTests: XCTestCase {
 
     func testOnCancelled() {
         var isCancelled = false
+        var cancelables = Set<AnyCancelable>()
         animator.onFinished.observe {
             XCTFail("animator is not finished")
         }.store(in: &cancelables)

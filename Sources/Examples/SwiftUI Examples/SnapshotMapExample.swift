@@ -16,7 +16,7 @@ struct SnapshotMapExample: View {
             VStack(spacing: 10) {
                 MapReader { proxy in
                     Map(initialViewport: .helsinkiOverview)
-                        .mapStyle(.standard(theme: .faded))
+                        .mapStyle(.outdoors)
                         .onMapIdle { _ in image = proxy.captureSnapshot() }
                         .onCameraChanged { event in
                             snapshotter.setCamera(to: CameraOptions(cameraState: event.cameraState))

@@ -38,7 +38,7 @@ struct AnnotationsExample: View {
             Map(viewport: $viewport) {
                 ForEvery(Self.flights, id: \.name) { flight in
                     CircleAnnotationGroup(flight.airports, id: \.name) { airport in
-                        CircleAnnotation(centerCoordinate: airport.coordinate)
+                        CircleAnnotation(centerCoordinate: airport.coordinate, isDraggable: true)
                             .circleColor(StyleColor(flight.color))
                             .onTapGesture { alert = "Airport: \(airport.name)" }
                     }

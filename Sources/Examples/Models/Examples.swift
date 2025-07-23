@@ -39,9 +39,6 @@ struct Examples {
         Example(title: "3D Lights",
                 description: "Configure lights in 3D environment.",
                 type: Lights3DExample.self)
-        Example(title: "Independent lighting for 3D models",
-                description: "Use custom Metal shaders to render 3D models with independent lighting sources.",
-                type: IndependentLightingExample.self)
     }
 
     // Examples that focus on annotations.

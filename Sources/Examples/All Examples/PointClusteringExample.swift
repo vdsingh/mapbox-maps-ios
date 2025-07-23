@@ -11,10 +11,9 @@ final class PointClusteringExample: UIViewController, ExampleProtocol {
         // Initialize a map view centered over the United States and using the Mapbox Dark style.
         let center = CLLocationCoordinate2D(latitude: 40.669957, longitude: -103.5917968)
         let cameraOptions = CameraOptions(center: center, zoom: 2)
-        let mapInitOptions = MapInitOptions(cameraOptions: cameraOptions)
+        let mapInitOptions = MapInitOptions(cameraOptions: cameraOptions, styleURI: .dark)
 
         mapView = MapView(frame: view.bounds, mapInitOptions: mapInitOptions)
-        mapView.mapboxMap.mapStyle = .standard(theme: .monochrome, lightPreset: .night)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.tintColor = .lightGray
 
@@ -81,10 +80,6 @@ final class PointClusteringExample: UIViewController, ExampleProtocol {
             40
         })
 
-        // `LightPreset`s are applied to all layers of the map.
-        // As `.night` is applied we need to set `circleEmissiveStrength` to color the circles
-        clusteredLayer.circleEmissiveStrength = .constant(1)
-
         return clusteredLayer
     }
 
@@ -100,11 +95,6 @@ final class PointClusteringExample: UIViewController, ExampleProtocol {
         unclusteredLayer.circleRadius = .constant(4)
         unclusteredLayer.circleStrokeWidth = .constant(1)
         unclusteredLayer.circleStrokeColor = .constant(StyleColor(.black))
-
-        // `LightPreset`s are applied to all layers of the map.
-        // As `.night` is applied we need to set `circleEmissiveStrength` to color the circles
-        unclusteredLayer.circleEmissiveStrength = .constant(1)
-
         return unclusteredLayer
     }
 

@@ -13,9 +13,8 @@ final class AnimateImageLayerExample: UIViewController, ExampleProtocol {
 
         let center = CLLocationCoordinate2D(latitude: 41.874, longitude: -75.789)
         let cameraOptions = CameraOptions(center: center, zoom: 5)
-        let mapInitOptions = MapInitOptions(cameraOptions: cameraOptions)
+        let mapInitOptions = MapInitOptions(cameraOptions: cameraOptions, styleURI: .dark)
         mapView = MapView(frame: view.bounds, mapInitOptions: mapInitOptions)
-        mapView.mapboxMap.mapStyle = .standard(theme: .monochrome, lightPreset: .night)
         mapView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 
         // Hide the `scaleBar` at all zoom levels.
@@ -59,10 +58,6 @@ final class AnimateImageLayerExample: UIViewController, ExampleProtocol {
 
         // Set `rasterFadeDuration` to `0`. This prevents visible transitions when the image is updated.
         imageLayer.rasterFadeDuration = .constant(0)
-
-        // `LightPreset`s are applied to all layers of the map.
-        // As `.night` is applied we need to set `rasterEmissiveStrength` to color the image
-        imageLayer.rasterEmissiveStrength = .constant(1)
 
         do {
             try mapView.mapboxMap.addSource(imageSource)

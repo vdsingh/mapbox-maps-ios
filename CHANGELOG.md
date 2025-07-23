@@ -4,12 +4,6 @@ Mapbox welcomes participation and contributions from everyone.
 
 ## main
 
-## 11.14.0-beta.1 - 02 July, 2025
-* Added new `split` expression, which returns an array of substrings from a string, split by a delimiter parameter.
-
-* Allow option to set SDF on a `PointAnnotation` image in Style DSL
-
-## Features ✨ and improvements 🏁
 ## 11.13.1 - 18 June, 2025
 
 ## 11.13.0 - 17 June, 2025
@@ -18,9 +12,9 @@ Mapbox welcomes participation and contributions from everyone.
 
 ## 11.13.0-rc.1
 
-* Added new `FillLayer.fillPatternCrossFade`, `FillExtrusionLayer.fillExtrusionPatternCrossFade`, `LineLayer.fillExtrusionPatternCrossFade` properties.
+* Introduce experimental `worldview` expression.
 
-## 11.12.0 - 07 May, 2025
+## 11.13.0-beta.1 - 19 May, 2025
 
 ## Breaking changes ⚠️
 * `PointAnnotation.iconImageCrossFade` has been deprecated and setting value to it will not have any impact. Use `PointAnnotationManager.iconImageCrossFadeTransition` instead.
